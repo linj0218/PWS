@@ -1,2 +1,2 @@
 # PWS
-微信砍价活动后台golang
+微信砍价活动后台（golang）
