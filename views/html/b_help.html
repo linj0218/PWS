@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="Copyright" content="" />
+	    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+	    ================================================== -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <!-- IOS6全屏 Chrome高版本全屏
+	    ================================================== -->
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="mobile-web-app-capable" content="yes">
+	    <!-- 让360双核浏览器用webkit内核渲染页面
+	    ================================================== -->
+	    <meta name="renderer" content="webkit">
+	    <!-- Mobile Specific Metas
+	    ================================================== -->
+	    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	    <meta name="format-detection" content="telephone=no">
+	    <!-- 启用360浏览器的极速模式(webkit) -->
+	    <meta name="renderer" content="webkit">
+	    <!-- 避免IE使用兼容模式 -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	    <meta name="HandheldFriendly" content="true">
+	    <!-- 微软的老式浏览器 -->
+	    <meta name="MobileOptimized" content="320">
+	    <!-- uc强制竖屏 -->
+	    <meta name="screen-orientation" content="portrait">
+	    <!-- QQ强制竖屏 -->
+	    <meta name="x5-orientation" content="portrait">
+	    <!-- UC强制全屏 -->
+	    <meta name="full-screen" content="yes">
+	    <!-- QQ强制全屏 -->
+	    <meta name="x5-fullscreen" content="true">
+	    <!-- UC应用模式 -->
+	    <meta name="browsermode" content="application">
+	    <!-- QQ应用模式 -->
+	    <meta name="x5-page-mode" content="app">
+	    <!-- windows phone 点击无高光 -->
+	    <meta name="msapplication-tap-highlight" content="no">
+		<title>帮他砍价</title>
+	    <style>
+	    	html{height: 100%;}
+	    	body{height: 100%;}
+	    	.body{height: 100%;}
+	    	
+	    	.b_help{font-size: 0.35rem;position: relative;height: 100%;background: url(../img/b_back1.jpg);background-size: 100% 100%;}
+	    	
+	    	.b_help .logoBox{padding-top: 0.78rem;margin-left: 0.47rem;}
+	    	.b_help .logoBox img{width: 4.17rem;}
+	    	
+	    	.b_help .personBox{text-align: center;margin-top: 0.3rem;}
+	    	.b_help .personBox .icon{width: 1.53rem;height: 1.53rem;background: #ccc;border-radius: 100%;}
+	    	.b_help .personBox p{font-size: 0.4rem;}
+	    	.b_help .personBox .img{margin-left: 30%;width: 62%;margin-top: -0.5rem;}
+	    	
+	    	.b_help .timeBox{width: 6.4rem;margin: 0.2rem 0 0 0.8rem;background:url(../img/b_12.png);height: 0.86rem;background-size: 100% 100%;    color: #fff;}
+	    	.b_help .timeBox p{float: left;letter-spacing: 0.4rem;text-align: center;height: 0.86rem;line-height: 0.86rem;box-sizing: border-box;font-size: 0.6rem;}
+	    	.b_help .timeBox p:nth-child(1){ margin-left: 0.6875rem;width: 0.578125rem;padding-left: 0.1rem;}
+	    	.b_help .timeBox p:nth-child(2){ margin-left: 0.75rem;width: 1.25rem;}
+	    	.b_help .timeBox p:nth-child(3){ margin-left: 0.3125rem;width: 1.25rem;}
+	    	.b_help .timeBox p:nth-child(4){ margin-left: 0.375rem;width: 1.1rem;}
+	    	
+	    	.b_help .awardBox{margin-top: 0.6rem;text-align: center;}
+	    	.b_help .awardBox p{font-family: '方正新报宋简体';font-size: 0.4rem;text-align: center;color: #68090f;line-height: 0.6rem;letter-spacing: 3px;}
+	    	
+	    	.b_help .buttonBox {width: 100%;text-align: center;margin-top: 0.6rem;}
+	    	.b_help .buttonBox img{width: 55%;}
+	    	
+	    	.b_turntable{font-size: 0.35rem;position: relative;background: url(../img/b_back2.jpg);background-size: 100% 100%;padding-bottom: 1rem;}
+	    	
+	    	.b_turntable .logoBox{padding-top: 0.78rem;margin-left: 0.47rem;}
+	    	.b_turntable .logoBox img{width: 4.17rem;}
+	    	
+	    	.b_turntable .zhuanpanBox{margin-top: 0.8rem;}
+	    	.b_turntable #zhuanpan{width:100%;margin:0 auto;position: relative;}
+			.b_turntable #back{width:100%}
+			.b_turntable #img{width:100%;position: absolute;top: 0;}
+			.b_turntable #img1 {width: 70%;position: absolute;top: 4.2%;left: 16.5%;transition: all 3s;}
+			.on1{transform: rotate(1777.5deg);}
+			.on2{transform: rotate(1732.5deg);}
+			.on3{transform: rotate(1687.5deg);}
+			.on4{transform: rotate(1642.5deg);}
+			.on5{transform: rotate(1597.5deg);}
+			.on6{transform: rotate(1552.5deg);}
+			.on7{transform: rotate(1507.5deg);}
+			.on8{transform: rotate(1462.5deg);}
+			.b_turntable #tip{position: absolute;left: 41.5%;top: 11%;width: 20%;}
+	    	
+	    	.b_turntable .awardBox{margin-top: 0.6rem;text-align: center;}
+	    	.b_turntable .awardBox p{font-family: '方正新报宋简体';font-size: 0.4rem;text-align: center;color: #68090f;line-height: 0.63rem;letter-spacing: 3px;}
+	    	
+	    	.b_turntable .buttonBox {width: 100%;text-align: center;margin-top: 0.4rem;}
+	    	.b_turntable .buttonBox img{width: 55%;}
+	    	
+	    	.b_award{font-size: 0.35rem;position: relative;height: 100%;background: url(../img/b_back3.jpg);background-size: 100% 100%;}
+	    	
+	    	.b_award .logoBox{padding-top: 0.78rem;margin-left: 0.47rem;}
+	    	.b_award .logoBox img{width: 4.17rem;}
+	    	
+	    	.b_award .awardBox{margin-top: 0.5rem;text-align: center;}
+	    	.b_award .awardBox p{font-family: '方正新报宋简体';font-size: 0.45rem;text-align: center;color: #68090f;line-height: 0.65rem;letter-spacing: 3px;}
+	    	.b_award .awardBox img{ width: 75%; margin-top: 0.3rem;}
+	    	
+	    	.b_award .contactBox {margin-top: 0.6rem;margin-left: 0.8rem;}
+	    	.b_award .contactBox .title {width: 3.42rem;}
+	    	.b_award .contactBox .detailBox{margin-top: 0.2rem;}
+	    	.b_award .contactBox .detailBox .codeBox{ width: 2.25rem;float: left;}
+	    	.b_award .contactBox .detailBox .codeBox img{width: 100%;}
+	    	.b_award .contactBox .detailBox .detail{float: left;margin: 0.3rem 0 0 0.4rem;height: 1.65rem;border-left: 5px solid #b2591d;padding: 0.2rem 0 0 0.3rem;}
+	    	.b_award .contactBox .detailBox .detail span{color: #68090f;font-size: 0.38rem;line-height: 0.55rem;}
+	    	
+	    	.b_award .buttonBox {width: 100%;text-align: center;margin-top: 0.7rem;}
+	    	.b_award .buttonBox img{width: 55%;}
+	    	
+	    	
+	    	.flex_column_ul{
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				
+			
+				-webkit-flex-flow:column wrap;
+				-ms-flex-flow:column wrap;
+				flex-flow:column wrap;
+				
+			
+				-webkit-box-pack: justify;
+				-webkit-justify-content: space-between;
+				-ms-flex-pack: justify;
+				justify-content: space-between;
+			}
+			.clearFix:after
+			{
+			clear:both;
+			display:block;
+			visibility:hidden;
+			height:0;
+			line-height:0;
+			content:"";
+			}
+	    </style>
+	</head>
+	<body>
+		<div class='body' id='body'>
+			<div class='b_help' v-show='isB_help'>
+				<div class='logoBox'>
+					<img src='../img/logo.png' />
+				</div>
+				<div class='personBox'>
+					<img class='icon' :src="headimgurl"/>
+					<p>{{nickname}}</p>
+					<img class='img' src='../img/b_1.png'/>
+				</div>
+				<div class='timeBox'>
+					<p id="t_d"></p>
+				    <p id="t_h"></p>
+				    <p id="t_m"></p>
+				    <p id="t_s"></p>
+				</div>
+				<div class='awardBox'>
+					<p>帮忙砍价的小伙伴</p>
+					<p>可以参与好运罗盘活动随机抽奖</p>
+					<p>也可以同步再次发起砍价活动</p>
+				</div>
+				<div class='buttonBox'>
+					<img src='../img/b_button1.png' @click='jumpPage' />
+				</div>
+			</div>
+			<div class='b_turntable' v-show='isB_turntable'>
+				<div class='logoBox'>
+					<img src='../img/logo.png' />
+				</div>
+				<div class='zhuanpanBox'>
+					<div id="zhuanpan">
+						<img id='back' src="../img/b_25.png" />
+						<img id="img"  v-bind:src='lightSrc' />
+						<img id="img1" src="../img/b_22.png">
+						<img id="tip" src="../img/b_2.png" @click='xuanzhuan'/>
+					</div>
+				</div>
+				<div class='buttonBox'>
+					<img src='../img/b_button2.png' @click='xuanzhuan'/>
+				</div>
+				<div class='awardBox'>
+					<p>帮忙砍价的小伙伴可通过活动页面</p>
+					<p>大转盘抽奖，随机获得以下礼品</p>
+					<p>Kindle  拍立得</p>
+					<p>2课时赠送   4课时赠送</p>
+					<p>胡同课程体验券</p>
+				</div>
+				<div id="reminding" style="display:none"></div>
+			</div>
+			<div class='b_award' v-show='isB_award'>
+				<div class='logoBox'>
+					<img src='../img/logo.png' />
+				</div>
+				<div class='awardBox'>
+					<p>恭喜您获得</p>
+					<p v-text='awardText'></p>
+					<img v-bind:src='awardSrc' />
+				</div>
+				<div class='contactBox'>
+					<img class='title' src='../img/b_contact.png'></img>
+					<div class='detailBox clearFix'>
+						<div class='codeBox'>
+							<img src='../img/code.png' />
+						</div>
+						<div class='detail'>
+							<span>
+								电话：400-080-1518
+								<br />
+								详情请登录官网
+								<br />
+								http://www.cnhutong.com
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class='buttonBox'>
+					<img src='../img/b_button3.png' />
+				</div>
+			</div>
+		</div>
+		<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+		<script type="text/javascript" src="../js/util.js"></script>
+	    <script type="text/javascript" src="../js/vue.min.js"></script>
+	    <script type="text/javascript" src="../js/reminding.min.js"></script>
+	    <script>
+	    	var vm = new Vue({
+			  	el: '#body',
+		  		data: {
+		  			isB_help:true,
+		  			isB_turntable:false,
+		  			isB_award:false,
+		  			
+		  			headimgurl: '',
+		  			nickname: '',
+
+		  			bgopenid:'',    //砍价用户的openid
+		  			openid:'',     //被砍价用户的openid
+		  			
+		  			lightSrc:'../img/b_23.png',
+					isture:false,
+					
+					award:'',
+		  			awardText:'',
+		  			awardSrc:'../img/card_course.jpg',
+		  		},
+		  		mounted: function(){
+		  			try{
+                        this.init();
+	  				}catch(e){
+                        alert("页面异常！");
+                    }
+		  		},
+	  			methods: {
+					init:function(){
+						var requestData = {};
+		    				requestData.bgopenid = this.bgopenid;    
+			  				requestData.openid = this.openid;
+			  			var _this = this;      
+						jsonpAjax("/pws008", {openid: getArgs()["topenid"]}, function(res){
+		                    console.log(res);
+		                    var info = res.data;
+		                    _this.nickname = info.nickname;
+		                    _this.headimgurl = info.headimgurl;
+		                })
+						this.countDown();
+	  				},
+	  				countDown:function(){   //计时器
+	  					var time = 1000;
+						var interval=setInterval(fun,time);
+						function fun(){
+							var EndTime= new Date('2016/12/19 16:50:00');
+						    var NowTime = new Date();
+						    var t =EndTime.getTime() - NowTime.getTime();
+						    var d=0;
+						    var h=0;
+						    var m=0;
+						    var s=0;
+						    if(t>0){
+						      d=Math.floor(t/1000/60/60/24);
+							  h=Math.floor(t/1000/60/60%24);
+						      if(h<10){
+						      	h='0'+h
+						      }
+						      m=Math.floor(t/1000/60%60);
+						      if(m<10){
+						      	m='0'+m
+						      }
+						      s=Math.floor(t/1000%60);
+						      if(s<10){
+						      	s='0'+s
+						      }
+						    }else if(t<=0){
+						    	d='0';
+						    	h='00';
+						    	m='00';
+						    	s='00';
+						    }
+						 	document.getElementById("t_d").innerHTML = d;
+						    document.getElementById("t_h").innerHTML = h;
+						    document.getElementById("t_m").innerHTML = m;
+						    document.getElementById("t_s").innerHTML = s;
+						}
+	  				},
+	  				jumpPage:function(){
+	  					var _this = this;
+	  					jsonpAjax("/pws009", {openid: getArgs()["openid"], topenid: getArgs()["topenid"]}, function(res){
+	  						console.log(res)
+	  						if(res.status != 0){
+	  							alert(res.data)
+	  						}else {
+	  							alert(res.data)
+			  					_this.isB_help=false;
+			  					_this.isB_turntable=true;
+			  					_this.isB_help=false;
+			  					_this.interva();
+	  						}
+	  					})
+	  				},
+	  				interva:function(){
+	  					var time = 300;
+						var interval=setInterval(fun,time);
+						function fun(){
+							if(vm.lightSrc=='../img/b_23.png')
+							{
+								vm.lightSrc='../img/b_24.png'
+							}else{
+								vm.lightSrc='../img/b_23.png'
+							}
+						}
+	  				},
+	  				xuanzhuan:function(){
+	  					jsonpAjax("/pws011", {openid: getArgs()["openid"], topenid: getArgs()["topenid"]}, function(res){
+	  						if(res.status != 0){
+	  							alert(res.data)
+	  						}else {
+	  							// res.data 从6到10
+	  							console.log(res.data)
+			  					var rotateFunc = function(awards, angle, text) {
+			  						console.log(awards);
+									var img1=document.getElementById('img1');
+									img1.setAttribute("class",angle); 
+									setTimeout(function(){
+										vm.isture = false; 
+										Remind.alert(text,function(){
+											vm.isB_help=false;
+						  					vm.isB_turntable=false;
+						  					vm.isB_award=true;
+						  					vm.award(text);
+										});
+									},3000);
+								};
+			  					if(this.isture) return; // 如果在执行就退出
+								this.isture = true; // 标志为 在执行
+								var data =6;
+								switch(data) {
+									case 1:
+										rotateFunc(1, 'on1', '恭喜您获得   Kindle阅读器一台!');
+										break;
+									case 2:
+										rotateFunc(2, 'on2', '恭喜您获得  2课时课程体验券一张！');
+										break;
+									case 3:
+										rotateFunc(3, 'on3', '恭喜您获得  拍立得一台!');
+										break;
+									case 4:
+										rotateFunc(4, 'on4', '恭喜您获得   Kindle阅读器一台!');
+										break;
+									case 5:
+										rotateFunc(5, 'on5', '恭喜您获得  4课时课程体验券一张！');
+										break;
+									case 6:
+										rotateFunc(6, 'on6', '恭喜您获得  胡同课程体验券一张!');
+										break;
+									case 7:
+										rotateFunc(7, 'on7', '恭喜您获得  拍立得一台!');
+										break;
+									case 8:
+										rotateFunc(8, 'on8', '恭喜您获得  4课时课程体验券一张！');
+										break;
+								}		
+	  						}
+	  					})
+					},
+					award:function(text){
+						if(text.indexOf('阅读器')!=-1){
+							this.awardText='Kindle阅读器一台';
+							this.awardSrc='../img/ind_mycards_11_on.jpg';
+						}else if(text.indexOf('2课时课程体验券')!=-1){
+							this.awardText='2课时课程体验券一张';
+							this.awardSrc='../img/ind_mycards_08_on.jpg';
+						}else if(text.indexOf('4课时课程体验券')!=-1){
+							this.awardText='4课时课程体验券一张';
+							this.awardSrc='../img/ind_mycards_09_on.jpg';
+						}else if(text.indexOf('拍立得')!=-1){
+							this.awardText='拍立得一台';
+							this.awardSrc='../img/ind_mycards_10_on.jpg';
+						}else if(text.indexOf('胡同课程体验券')!=-1){
+							this.awardText='胡同课程体验券一张';
+							this.awardSrc='../img/card_course.jpg';
+						}
+	  				},
+	  			}
+			})
+	    </script>
+	</body>
+</html>

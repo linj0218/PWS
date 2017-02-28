@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="Copyright" content="" />
+<!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+================================================== -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- IOS6全屏 Chrome高版本全屏
+================================================== -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<!-- 让360双核浏览器用webkit内核渲染页面
+================================================== -->
+<meta name="renderer" content="webkit">
+<!-- Mobile Specific Metas
+================================================== -->
+<!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta name="format-detection" content="telephone=no">
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit">
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="HandheldFriendly" content="true">
+<!-- 微软的老式浏览器 -->
+<meta name="MobileOptimized" content="320">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<!-- UC强制全屏 -->
+<meta name="full-screen" content="yes">
+<!-- QQ强制全屏 -->
+<meta name="x5-fullscreen" content="true">
+<!-- UC应用模式 -->
+<meta name="browsermode" content="application">
+<!-- QQ应用模式 -->
+<meta name="x5-page-mode" content="app">
+<!-- windows phone 点击无高光 -->
+<meta name="msapplication-tap-highlight" content="no">
+
+<title>邀请大家砍价</title>
+
+<style>
+	html, body{height:100%;-webkit-overflow-scrolling: touch;}
+	body{background: url("../img/index_01.jpg") no-repeat 0 0 / 100% 100%}
+	#body{height: 100%; overflow: auto;}
+	/* css of index */
+	.part-1{height: .9375rem;padding-top: .46875rem;padding-left:.3125rem;}
+	.part-1>img{height: 100%;}
+	.part-2{position: relative;}
+	.kanjia-img{width: 4.0625rem;padding-top: 1.09375rem;padding-left:.78125rem;}
+	.kanjia-img>img{width: 100%;}
+	.per-info{position: absolute;right: 0;top:-.625rem;padding-right: 1.09375rem;}
+	.user-info{text-align: center;padding-bottom: .15625rem;}
+	.user-icon{width: 1.71875rem;height: 1.71875rem;background: #ccc;border-radius: 50%;margin: auto;}
+	.user-name{font-size: .5rem;padding-top: .15625rem;}
+	.count-down{background: url(../img/index_04.png) no-repeat 100% 0 / 100% auto;width: 6.09375rem;position: absolute;right: .78125rem;font-size: .625rem;color: #fff;font-weight: bold;height: .8125rem;line-height: .8125rem;}
+	.count-down>span{display: inline-block;width: .5625rem;float: left;text-align: center;}
+	.btns{position: absolute;right: 0;top:5.15625rem;width: 3.4375rem;overflow: hidden;padding-right: .78125rem;}
+	.btns>.btn-2{width: 3.6875rem;margin-top:.25rem}
+	.btns>div>img{width: 100%;}
+	.kj-count{text-align: center;font-size: .5rem;}
+	.kj-count>i{display: inline-block;width: .9375rem;height: .875rem;background: url(../img/index_07.png) no-repeat 0 0 / 100% auto;vertical-align: bottom;margin:0 .15625rem;}
+	.kj-bar{height: .3125rem;width: 8rem;margin: .15625rem auto;overflow: hidden;
+		border-top-left-radius: .0625rem .1875rem;
+		border-bottom-left-radius: .0625rem .1875rem;
+		border-top-right-radius: .25rem .1875rem;
+		border-bottom-right-radius: .25rem .1875rem;
+		filter:progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#ffac00,endColorStr=#f9450a); /*IE 6 7 8*/ 
+		background: -ms-linear-gradient(left, #ffac00,#f9450a);/* IE 10 */
+		background: -moz-linear-gradient(left,#ffac00,#f9450a);/*火狐*/ 
+		background: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#ffac00), to(#f9450a));/* Safari 4-5, Chrome 1-9*/
+		background: -webkit-linear-gradient(left, #ffac00, #f9450a);/*Safari5.1 Chrome 10+*/
+		background: -o-linear-gradient(left, #ffac00, #f9450a);/*Opera 11.10+*/}
+	.kj-bar>i{display: block;height: 100%;background: #b95000;border-top-right-radius: .0625rem .1875rem;border-bottom-right-radius: .0625rem .1875rem;}
+	.kj-icons{text-align: center;}
+	.kj-icons>i{display: inline-block;width: 1.09375rem; height: 1.09375rem;margin:.15625rem;}
+	.kj-icons>i:nth-child(1){background: url("../img/index_08.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i:nth-child(2){background: url("../img/index_09.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i:nth-child(3){background: url("../img/index_10.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i:nth-child(4){background: url("../img/index_11.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i:nth-child(5){background: url("../img/index_12.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i.on:nth-child(1){background: url("../img/index_08_on.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i.on:nth-child(2){background: url("../img/index_09_on.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i.on:nth-child(3){background: url("../img/index_10_on.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i.on:nth-child(4){background: url("../img/index_11_on.png") no-repeat 0 0 / 100% auto;}
+	.kj-icons>i.on:nth-child(5){background: url("../img/index_12_on.png") no-repeat 0 0 / 100% auto;}
+	.invite-btn{position: relative;}
+	.invite{width: 5.3125rem;background: url(../img/index_13.png) no-repeat 0 0 / 100% auto;height: 1.375rem;margin: auto;}
+	.invite-btn>img{position: absolute;left: 50%;transform: translateX(2.65625rem);width: .875rem;top: .3125rem;}
+	/* css of my cards */
+	#myCards{-webkit-overflow-scrolling: touch;}
+	#part-2{padding-top: .78125rem;}
+	.myCard-title{width: 4.6875rem;height: 1.40625rem;background: url(../img/ind_mycards_01.png) no-repeat 0 0 / 100% auto;margin-left: .625rem;}
+	.cards{padding: .625rem 0;}
+	.cards>div{width: 7.5rem;margin: auto;padding: .15625rem 0;}
+	.cards img{width: 100%;}
+	/* css of my cards detail */
+	#myCardsDetail-bg{position: fixed;top: 0;left: 0;background: url(../img/ind_mycards_bg.jpg) no-repeat 0 0 / 100% 100%;width: 100%;height: 100%;}
+	#myCardsDetail-bg .part-1{padding-bottom: 1.5625rem}
+	.card-detail{width: 9rem;margin: auto;position: relative;}
+	.card-detail img{width: 100%;}
+	.card-detail span{position: absolute;right: .9375rem;top: 2.8125rem;}
+	.cd-btn{width: 6.5rem;height: 1.5625rem;background: url(../img/ind_mycards_12.png) no-repeat 0 0 / 100% auto;margin: auto;}
+	/* css of roles */
+	#roles-bg{height: 100%;background: url("../img/ind_roles_01.jpg") no-repeat 0 0 / 100% 100%;overflow: auto;-webkit-overflow-scrolling: touch;}
+	.role-cont{padding: .3125rem .46875rem;}
+	.role-title{width: 4.6875rem;}
+	.role-title>img{width: 100%;}
+	.role-cont p{padding: 0 .46875rem;line-height: .625rem;font-size: .375rem;}
+	.role-table{padding: .15625rem .46875rem;text-align: center;font-size: .375rem;}
+	.role-table th{text-align: center;}
+	.role-table table{width: 100%;}
+	.role-contact{padding: .3125rem .46875rem;}
+	.contact{padding-left: .46875rem;padding-bottom: .625rem;}
+	.contact:after{content: '';display: block;visibility: hidden;height: 0;clear: both;}
+	.role-qr{width: 3.125rem;height: 3.125rem;float: left;}
+	.role-qr img{width: 100%;height: 100%;}
+	.line{float: left;width: .15625rem;background: #b95000;height: 1.875rem;margin: .625rem .3125rem 0 .09375rem;}
+	.role-words{overflow: hidden;height: 3.125rem;font-size: .4375rem;padding-top: .75rem;box-sizing: border-box;word-wrap: break-word;}
+	/* css of shade */
+	#shade{height: 100%;position: fixed;width: 100%;background: url(../img/index_zz.png) no-repeat 0 0 / 100% auto;top: 0;left: 0;z-index: 2;}
+	[v-cloak]{display:none;}
+</style>
+</head>
+<body>
+<div id="body">
+	<div v-show="isIndex" v-cloak>
+		<div class="part-1"><img src="../img/index_02.png"></div>
+		<div class="part-2">
+			<div class="kanjia-img">
+				<img src="../img/index_03.png">
+			</div>
+			<div class="per-info">
+				<div class="user-info">
+					<div class="user-icon" :style="headimgurl"></div>
+					<div class="user-name">{{ nickname }}</div>
+				</div>
+				<div class="count-down">
+					<span class="cd-0" style="padding-left: .65625rem;">{{countdown[0]}}</span>
+					<span class="cd-1" style="padding-left: .6875rem;">{{countdown[1]}}</span>
+					<span class="cd-2" style="padding-left: .0625rem;">{{countdown[2]}}</span>
+					<span class="cd-3" style="padding-left: .28125rem;">{{countdown[3]}}</span>
+					<span class="cd-4" style="padding-left: .0625rem;">{{countdown[4]}}</span>
+					<span class="cd-5" style="padding-left: .34375rem;">{{countdown[5]}}</span>
+					<span class="cd-6" style="padding-left: .0625rem;">{{countdown[6]}}</span>
+				</div>
+				<div class="btns">
+					<div class="btn-1" @click="events(0)"><img src="../img/index_05.png"></div>
+					<div class="btn-2" @click="events(1)"><img src="../img/index_06.png"></div>
+				</div>
+			</div>
+		</div>
+		<div class="part-3">
+			<div class="kj-count">
+				<span>成功</span><i></i><span>{{ bbargintime }}</span><span>次</span>
+			</div>
+			<div class="kj-bar"><i style="width: 10%;"></i></div>
+			<div class="kj-icons">
+				<i :class="{on:barginStep[0]}"></i>
+				<i :class="{on:barginStep[1]}"></i>
+				<i :class="{on:barginStep[2]}"></i>
+				<i :class="{on:barginStep[3]}"></i>
+				<i :class="{on:barginStep[4]}"></i>
+			</div>
+			<div class="invite-btn">
+				<div class="invite" @click="events(2)"></div>
+				<img src="../img/index_14.png">
+			</div>
+		</div>
+	</div><!-- end of index -->
+
+	<div v-show="isMyCards" id="myCards" v-cloak>
+		<div class="part-1"><img src="../img/index_02.png"></div>
+		<div class="part-2" id="part-2">
+			<div class="myCard-title"></div>
+			<div class="per-info">
+				<div class="user-info">
+					<div class="user-icon" :style="headimgurl"></div>
+					<div class="user-name">{{ nickname }}</div>
+				</div>
+			</div>
+		</div>
+		<div class="cards">
+			<template v-for="card in cards">
+				<div @click="cardDetail(card.picName, card.isOn, card.cdkey)"><img :src="'../img/'+card.picName+(card.isOn?'_on.jpg':'.jpg')"></div>
+			</template>
+		</div>
+	</div><!-- end of my cards -->
+
+	<div v-show="isMyCardsDetail" id="myCardsDetail-bg" v-cloak>
+		<div class="part-1"><img src="../img/index_02.png"></div>
+		<template v-for="cdkey in cdkeys">
+			<div class="card-detail"><img :src="'../img/'+detailCard+'_det.png'"><span>{{cdkey}}</span></div>
+		</template>
+		<div class="cd-btn" @click="events(2)"></div>
+	</div><!-- end of my cards detail -->
+
+	<div v-show="isRoles" id="roles-bg" v-cloak>
+		<div class="part-1"><img src="../img/index_02.png"></div>
+		<div class="role-cont">
+			<div class="role-title"><img src="../img/ind_roles_02.png"></div>
+			<p>活动日期：1月1日至1月31日</p>
+			<p>活动对象：所有学员</p>
+			<p>活动方式：发起者发起砍价，转发朋友圈，找朋友帮忙砍价。</p>
+			<p>帮忙砍价的小伙伴可以参与好运罗盘活动，随机抽奖，也可以同步再次发起砍价活动。</p>
+			<p>砍价说明：小伙伴每帮忙砍价一次，即可积攒一定的数额，满300、500、800、1000、1200即可获得相对应的优惠券，用于抵扣价格。每张优惠券有对应的课时套餐。</p>
+			<div class="role-table">
+				<table>
+					<tr>
+						<th>优惠券额度</th>
+						<th>该档砍价次数</th>
+						<th>该档砍价单价</th>
+						<th>对应课时</th>
+					</tr>
+					<template v-for="td in tableCont">
+						<tr>
+							<td v-text="td.a"></td>
+							<td v-text="td.b"></td>
+							<td v-text="td.c"></td>
+							<td v-text="td.d"></td>
+						</tr>
+					</template>
+				</table>
+			</div>
+			<p>例子：比如甲学员通过砍价活动，砍下了700元。那么实际获得的是300元优惠券一张+500元优惠券一张。</p>
+		</div>
+		<div class="role-contact">
+			<div class="role-title"><img src="../img/ind_roles_03.png"></div>
+			<div class="contact">
+				<div class="role-qr"><img src="../img/ind_roles_04.png"></div>
+				<div class="line"></div>
+				<div class="role-words">
+					<p>电话：400-080-1418</p>
+					<p>详情请登陆官网</p>
+					<p>http://www.cnhutong.com</p>
+				</div>
+			</div>
+		</div>
+	</div><!-- end of roles -->
+
+	<div v-show="isShade" v-cloak>
+		<div id="shade" @click="events(3)"></div>
+	</div><!-- end of shade -->
+	
+</div>
+<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+<script type="text/javascript" src="../js/vue.min.js"></script>
+<script type="text/javascript" src="../js/util.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: "#body",
+		data: {
+			isIndex: true,
+			isShade: false,
+			isMyCards: false,
+			isMyCardsDetail: false,
+			isRoles: false,
+			nickname: "昵称",
+			bbargintime: 0,
+			headimgurl: {
+				background: ''
+			},
+			barginStep: [false, false, false, false, false],
+			countdown: [0, 0, 0, 0, 0, 0, 0],
+			navigation: [], // 导航
+			cards: [
+				{picName:"ind_mycards_02", isOn: false, cdkey: []},
+				{picName:"ind_mycards_03", isOn: false, cdkey: []},
+				{picName:"ind_mycards_04", isOn: false, cdkey: []},
+				{picName:"ind_mycards_05", isOn: false, cdkey: []},
+				{picName:"ind_mycards_06", isOn: false, cdkey: []},
+				{picName:"ind_mycards_07", isOn: false, cdkey: []},
+				{picName:"ind_mycards_08", isOn: false, cdkey: []},
+				{picName:"ind_mycards_09", isOn: false, cdkey: []},
+				{picName:"ind_mycards_10", isOn: false, cdkey: []},
+				{picName:"ind_mycards_11", isOn: false, cdkey: []}
+			],
+			detailCard: "ind_mycards_02",
+			cdkeys: [],
+			tableCont: [
+				{a: 300, b: "+20", c: "15左右", d: 80},
+				{a: 500, b: "+10", c: "20左右", d: 120},
+				{a: 800, b: "+15", c: "20左右", d: 160},
+				{a: 1000, b: "+8", c: "25左右", d: 240},
+				{a: 1200, b: "+8", c: "25左右", d: 50}
+			]
+		},
+		mounted: function(){
+			this.init();
+		},
+		methods: {
+			init: function(){
+				this.getData();
+
+			},
+			getData: function(){
+				var _this = this;
+				var url = window.location.href.split("#")[0];
+
+				// 获取页面数据
+				jsonpAjax("/pws008", {openid:getArgs()["openid"]}, function(res){
+					console.log(res);
+					_this.initData(res.data)
+
+					_this.countDown();
+					_this.goBack();
+				})
+
+				// 获取jssdk配置信息
+				jsonpAjax("/pws005", {"url": url}, function(res){
+					console.log(res);
+					_this.initApi(res.data);
+				})
+			},
+			initData: function(d){
+				this.headimgurl.background = "url('" + d.headimgurl + "') no-repeat 0 0 / 100% auto";
+				this.nickname = d.nickname;
+				this.bbargintime = d.bbargintime;
+
+				var countdown = [],
+				    endDate = new Date(d.targettime).getTime(),
+				    nowDate = new Date().getTime(),
+				    diffTime = endDate - nowDate,
+				    days = Math.floor( diffTime / (24 * 3600 * 1000)),
+				    hours = Math.floor( diffTime % (24 * 3600 * 1000) / (3600 * 1000)),
+				    mins = Math.floor( diffTime % (24 * 3600 * 1000) % (3600 * 1000) / (60 * 1000)),
+				    secs = Math.floor( diffTime % (24 * 3600 * 1000) % (3600 * 1000) % (60 * 1000) / 1000);
+
+				if(days > 9) countdown.push(9);
+				else countdown.push(days);
+				if(hours > 9) countdown.push(Number(String(hours).split("")[0])), countdown.push(Number(String(hours).split("")[1]));
+				else countdown.push(0), countdown.push(hours);
+				if(mins > 9) countdown.push(Number(String(mins).split("")[0])), countdown.push(Number(String(mins).split("")[1]));
+				else countdown.push(0), countdown.push(mins);
+				if(secs > 9) countdown.push(Number(String(secs).split("")[0])), countdown.push(Number(String(secs).split("")[1]));
+				else countdown.push(0), countdown.push(secs);
+
+				this.countdown = countdown;
+
+				/*if(d.bbargintime >= 61){
+					this.barginStep=[true, true, true, true, true];
+				}else if(d.bbargintime >= 53){
+					this.barginStep=[true, true, true, true, false];
+				}else if(d.bbargintime >= 45){
+					this.barginStep=[true, true, true, false, false];
+				}else if(d.bbargintime >= 30){
+					this.barginStep=[true, true, false, false, false];
+				}else if(d.bbargintime >= 20){
+					this.barginStep=[true, false, false, false, false];
+				}
+
+				if(d.cards || d.cards.length){
+					var cards = [
+						{picName:"ind_mycards_02", isOn: false, cdkey: []},
+						{picName:"ind_mycards_03", isOn: false, cdkey: []},
+						{picName:"ind_mycards_04", isOn: false, cdkey: []},
+						{picName:"ind_mycards_05", isOn: false, cdkey: []},
+						{picName:"ind_mycards_06", isOn: false, cdkey: []},
+						{picName:"ind_mycards_07", isOn: false, cdkey: []},
+						{picName:"ind_mycards_08", isOn: false, cdkey: []},
+						{picName:"ind_mycards_09", isOn: false, cdkey: []},
+						{picName:"ind_mycards_10", isOn: false, cdkey: []},
+						{picName:"ind_mycards_11", isOn: false, cdkey: []}
+					];
+
+					for(var i=0,len=d.cards.length; i<len; i++){
+						if(d.cards[i].name == "300元抵价券"){
+							cards[0].isOn = true;
+							cards[0].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "500元抵价券"){
+							cards[1].isOn = true;
+							cards[1].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "800元抵价券"){
+							cards[2].isOn = true;
+							cards[2].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "1000元抵价券"){
+							cards[3].isOn = true;
+							cards[3].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "1200元抵价券"){
+							cards[4].isOn = true;
+							cards[4].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "课时体验券"){
+							cards[5].isOn = true;
+							cards[5].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "二课时课程"){
+							cards[6].isOn = true;
+							cards[6].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "四课时课程"){
+							cards[7].isOn = true;
+							cards[7].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "拍立得"){
+							cards[8].isOn = true;
+							cards[8].cdkey.push(d.cards[i].cdkey)
+						}else if(d.cards[i].name == "Kindle阅读器"){
+							cards[9].isOn = true;
+							cards[9].cdkey.push(d.cards[i].cdkey)
+						}
+					}
+
+					this.cards = cards;
+				}*/
+			},
+			initApi: function(d){
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: d.appId, // 必填，公众号的唯一标识
+					timestamp: d.timestamp, // 必填，生成签名的时间戳
+					nonceStr: d.noncestr, // 必填，生成签名的随机串
+					signature: d.signature,// 必填，签名，见附录1
+					jsApiList: ['showMenuItems', 'onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+				wx.ready(function(){
+					wx.showMenuItems({
+						menuList: ["menuItem:refresh", "menuItem:share:appMessage", "menuItem:share:timeline"] // 要显示的菜单项，所有menu项见附录3
+					});
+					// 分享给朋友
+					wx.onMenuShareAppMessage({
+						title: '快来帮我砍价吧', // 分享标题
+						desc: '你帮我砍价可以抽奖哦', // 分享描述
+						link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+d.appId+'&redirect_uri=http%3a%2f%2f194e3554.ngrok.io%2fpws%2fpws004&response_type=code&scope=snsapi_userinfo&state='+getArgs()["openid"]+'#wechat_redirect', // 分享链接
+						imgUrl: 'http://appjavat.cnhutong.com/Bargain_Html/img/index_08_on.png', // 分享图标
+						type: 'link', // 分享类型,music、video或link，不填默认为link
+						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						success: function () { 
+							// 用户确认分享后执行的回调函数
+						},
+						cancel: function () { 
+							// 用户取消分享后执行的回调函数
+						}
+					});
+					// 分享到朋友圈
+					wx.onMenuShareTimeline({
+						title: '测试砍价分享', // 分享标题
+						link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+d.appId+'&redirect_uri=http%3a%2f%2f194e3554.ngrok.io%2fpws%2fpws004&response_type=code&scope=snsapi_userinfo&state='+getArgs()["openid"]+'#wechat_redirect', // 分享链接
+						imgUrl: 'http://appjavat.cnhutong.com/Bargain_Html/img/index_08_on.png', // 分享图标
+						success: function () { 
+							// 用户确认分享后执行的回调函数
+						},
+						cancel: function () { 
+							// 用户取消分享后执行的回调函数
+						}
+					});
+				});
+				wx.error(function(res){
+				});
+			},
+			setHistory: function(){
+				var state = {title: "title",url: "#"};
+				window.history.pushState(state, "title", "#");
+			},
+			goBack: function(){
+				var _this = this;
+				window.onpopstate = function(e) {
+				    var nav = _this.navigation.pop();
+					if(nav == "mycards"){
+						_this.isMyCards = false;
+						_this.isIndex = true;
+					}
+					if(nav == "mycardsdetail"){
+						_this.isMyCardsDetail = false;
+					}
+					if(nav == "roles"){
+						_this.isRoles = false;
+						_this.isIndex = true;
+					}
+				}
+			},
+			countDown: function(){
+				var _this = this;
+				var time = setInterval(function(){
+					var countDown = [];
+					for(var i=0,len=_this.countdown.length; i<len; i++)
+						countDown.push(_this.countdown[i]);
+
+					if(countDown[6] != 0)
+						countDown[6] = --countDown[6];
+					else{
+						countDown[6] = 9;
+						if(countDown[5] != 0)
+							countDown[5] = --countDown[5];
+						else {
+							countDown[5] = 5;
+							if(countDown[4] != 0)
+								countDown[4] = --countDown[4];
+							else{
+								countDown[4] = 9;
+								if(countDown[3] != 0)
+									countDown[3] = --countDown[3];
+								else{
+									countDown[3] = 5;
+									if(countDown[2] != 0)
+										countDown[2] = --countDown[2];
+									else{
+										if(countDown[1] != 0){
+											countDown[2] = 9;
+											countDown[1] = --countDown[1];
+										}else{
+											if(countDown[0] != 0){
+												countDown[0] = --countDown[0];
+												countDown[2] = 3;
+												countDown[1] = 2;
+											}else{
+												clearInterval(time);
+												return false;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					_this.countdown = countDown;
+				}, 1000)
+			},
+			events: function(i){
+				switch (i) {
+					case 0:
+						this.setHistory();
+						this.navigation.push("mycards");
+						this.isIndex = false;
+						this.isMyCards = true;
+						break;
+					case 1:
+						this.setHistory();
+						this.navigation.push("roles");
+						this.isIndex = false;
+						this.isRoles = true;
+						break;
+					case 2:
+						this.isShade = true;
+						break;
+					case 3:
+						this.isShade = false;
+						break;
+					default:
+						console.error("the 'i' is useless!");
+						break;
+				}
+			},
+			cardDetail: function(picName, flg, cdkeys){
+				if(flg){
+					this.setHistory();
+					this.navigation.push("mycardsdetail");
+					this.isMyCardsDetail = true;
+					this.detailCard = picName;
+					this.cdkeys = cdkeys;
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>
